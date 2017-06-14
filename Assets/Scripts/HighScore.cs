@@ -10,7 +10,7 @@ public class HighScore : MonoBehaviour {
     {
         if (PlayerPrefs.HasKey("ApplePickerHighScore"))
         {
-            score = PlayerPrefs.GetInt("ApplePickerHigherScore");
+            score = PlayerPrefs.GetInt("ApplePickerHighScore"); //mistake here. prev: ApplePickerHigherScore
         }
         PlayerPrefs.SetInt("ApplePickerHighScore", score);
     }

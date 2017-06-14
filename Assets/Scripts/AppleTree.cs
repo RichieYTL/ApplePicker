@@ -4,7 +4,7 @@ using System.Collections;
 public class AppleTree : MonoBehaviour {
 
 	public GameObject applePrefab;
-	public float speed = 1f;
+	public float speed = 1.0f;
 	public float leftAndRightEdge = 10f;
 	public float chanceToChangeDirections = .1f;
 	public float secondsBetweenAppleDrops = 1f;
@@ -22,15 +22,15 @@ public class AppleTree : MonoBehaviour {
 		pos.x += speed * Time.deltaTime;
 		transform.position = pos;
 
-		if (pos.x < -leftAndRightEdge) {
-			speed = Mathf.Abs (speed);
-		} else if (pos.x < leftAndRightEdge) {
-            speed = Mathf.Abs(speed) * -1;
+		if (pos.x < -(leftAndRightEdge)) {
+			speed = Mathf.Abs(speed);
+		} else if (pos.x > leftAndRightEdge) { //huge mistake here. prev: pos.x < leftAndRightEdge
+            speed = -Mathf.Abs(speed);
 		}
-	}
+        //Debug.Log(string.Format("Speed: {0}, Pos: {1}", speed, pos.x));
+    }
 
 	void FixedUpdate(){
-		//Changing direction randomly 50 times a second due to FixUpdate
 		if (Random.value < chanceToChangeDirections) {
 			speed = speed * -1;
 		}
