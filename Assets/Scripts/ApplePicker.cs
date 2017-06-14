@@ -36,5 +36,10 @@ public class ApplePicker : MonoBehaviour {
 		GameObject tBasketGO = basketList [basketIndex];
 		basketList.RemoveAt (basketIndex); //Getting rid of the reference to the GO and out of our database.
 		Destroy (tBasketGO); //Actually destroy the GO now.
+
+        if(basketList.Count == 0)
+        {
+            Application.LoadLevel("_Scene_0");
+        }
 	}
 }
