@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class ApplePicker : MonoBehaviour {
@@ -25,7 +26,7 @@ public class ApplePicker : MonoBehaviour {
 
 	public void AppleDestroyed(){
 		//Destroy all apples on failure
-		GameObject tAppleArray = GameObject.FindGameObjectsWithTag ("Apple");
+		GameObject[] tAppleArray = GameObject.FindGameObjectsWithTag ("Apple");
 		foreach(GameObject tGo in tAppleArray){
 				Destroy (tGo);
 		}
